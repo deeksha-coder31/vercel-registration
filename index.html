@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Online Registration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Online Registration</h1>
+    <p class="sub">Final-year level • Vercel + Serverless + Postgres</p>
+  </header>
+
+  <main>
+    <form id="regForm" novalidate>
+      <div class="row">
+        <label>Full Name</label>
+        <input id="fullname" type="text" required minlength="2" placeholder="Your name" />
+        <small class="err" id="err-fullname"></small>
+      </div>
+
+      <div class="row">
+        <label>Email</label>
+        <input id="email" type="email" required placeholder="you@example.com" />
+        <small class="err" id="err-email"></small>
+      </div>
+
+      <div class="row">
+        <label>Phone</label>
+        <input id="phone" type="tel" required pattern="[0-9]{10}" placeholder="10-digit number" />
+        <small class="err" id="err-phone"></small>
+      </div>
+
+      <div class="row">
+        <label>Course</label>
+        <select id="course" required>
+          <option value="">Select</option>
+          <option>B.Tech</option>
+          <option>M.Tech</option>
+          <option>MBA</option>
+          <option>MCA</option>
+        </select>
+        <small class="err" id="err-course"></small>
+      </div>
+
+      <div class="row">
+        <label>Message</label>
+        <textarea id="message" rows="4" placeholder="Any note..."></textarea>
+      </div>
+
+      <button id="submitBtn" type="submit">Submit</button>
+      <p id="status"></p>
+    </form>
+
+    <section class="info">
+      <h2>How this works</h2>
+      <ul>
+        <li>Frontend hosted on Vercel</li>
+        <li>Form POSTs to <code>/api/submit</code> (serverless)</li>
+        <li>Data stored in Vercel Postgres</li>
+        <li>Admin JSON at <code>/api/admin-list?token=YOUR_TOKEN</code></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Your Name • Deployed on Vercel</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>
